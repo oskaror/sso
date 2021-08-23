@@ -1,0 +1,25 @@
+.DS_Store
+.ruby-version
+
+# Ignore bundler config.
+/store/.bundle
+
+# Ignore all logfiles and tempfiles.
+/store/log/*
+/store/tmp/*
+!/store/log/.keep
+!/store/tmp/.keep
+
+# Ignore pidfiles, but keep the directory.
+/store/tmp/pids/*
+!/store/tmp/pids/
+!/store/tmp/pids/.keep
+
+/store/public/assets
+/store/.byebug_history
+
+# Ignore master key for decrypting credentials and more.
+/store/config/master.key
+
+# Ignore IDEA config file
+/store/.idea
