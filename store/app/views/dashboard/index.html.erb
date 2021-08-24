@@ -1,0 +1,26 @@
+<main class="form-signin text-center">
+  <% if @current_user.present? %>
+    <h1 class="h3 mb-3 fw-normal">Welcome!</h1>
+
+    <h5>User: <%= @current_user.email %></h5>
+    <h5>Role: <span class="badge bg-secondary"><%= @current_user.role %></span></h5>
+
+    <%= button_to "Go To Analytics", ENV['ANALYTICS_APP_URL'], class: "w-100  btn  btn-lg btn-primary" %>
+    <%= button_to "Logout", session_path, method: :delete, class: "w-100  btn-lg btn btn-danger" %>
+  <% else %>
+    <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+    <%= form_tag('/session') do %>
+      <div class="form-floating">
+        <%= text_field_tag(:email, "", class: 'form-control', placeholder: 'name@example.com') %>
+        <%= label_tag(:email, 'Email address', { for: 'floatingInput' }) %>
+      </div>
+
+      <div class="form-floating">
+        <%= text_field_tag(:password, "", class: 'form-control', placeholder: 'password', type: 'password') %>
+        <%= label_tag(:password, "Password", for: "floatingPassword") %>
+      </div>
+
+      <%= submit_tag("Sign in", class: "w-100 btn btn-lg btn-primary") %>
+    <% end %>
+  <% end %>
+</main>
