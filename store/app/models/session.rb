@@ -1,9 +1,14 @@
+# frozen_string_literal: true
+
 class Session
-  SECRET_KEY = ENV['JWT_SECRET'].freeze
+  SECRET_KEY = ENV['JWT_SECRET']
+
+  attr_reader :user
 
   def self.from_token(token)
     payload, _header = JWT.decode(token, SECRET_KEY)
-    User.find_by(email: payload['email'])
+    user = User.find_by(email: payload['email'])
+    new(user) if user
   rescue JWT::DecodeError
     nil
   end
@@ -14,7 +19,6 @@ class Session
 
   def generate_token
     JWT.encode({
-                 type: :session,
                  exp: 1.day.from_now.to_i,
                  email: @user.email,
                  role: @user.role

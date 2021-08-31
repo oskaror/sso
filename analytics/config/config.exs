@@ -9,7 +9,7 @@ use Mix.Config
 
 # Configures the endpoint
 config :analytics, AnalyticsWeb.Endpoint,
-  url: [host: "localhost"],
+  url: [host: "analytics.lvh.me"],
   secret_key_base: "hIUw/e0sZmKszzVQBALpAXoLEXpX9VfyVLituq4dltFvdSVnlit9rLDf8MVYx8NZ",
   render_errors: [view: AnalyticsWeb.ErrorView, accepts: ~w(html json), layout: false],
   pubsub_server: Analytics.PubSub,

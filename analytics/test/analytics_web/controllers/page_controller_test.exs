@@ -3,6 +3,7 @@ defmodule AnalyticsWeb.PageControllerTest do
 
   test "GET /", %{conn: conn} do
     conn = get(conn, "/")
-    assert html_response(conn, 200) =~ "Welcome to Phoenix!"
+    assert html_response(conn, 307) =~ "http://lvh.me:3000"
   end
 end
+
