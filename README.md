@@ -1,4 +1,4 @@
-#SSO
+# SSO
 ### Prerequisites
 
 * Ruby ver. 2.7
